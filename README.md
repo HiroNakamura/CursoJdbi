@@ -22,6 +22,13 @@ Si usan Gradle, añadirán la siguiente dependencia.
 compile group: 'org.jdbi', name: 'jdbi3-core', version: '3.12.0'
 ```
 
+La documentación oficial nos ofrece dos "sabores" a escoger:
+
+1. API fluida: El Core API proporciona una interfaz fluida e imperativa. Utilice los objetos de estilo Builder para conectar su SQL a tipos de datos Java enriquecidos.
+2. API delarativa: La extensión del objeto SQL se encuentra sobre Core y proporciona una interfaz declarativa. Dígale a Jdbi qué SQL ejecutar y la forma de los resultados que desea declarando una interfaz Java anotada, y proporcionará la implementación.
+
+
+
 Links:
 * [Sitio oficial de Jdbi](http://jdbi.org/)
 * [JDBI en Github](https://github.com/jdbi/jdbi).
