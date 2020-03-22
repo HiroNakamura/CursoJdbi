@@ -1,4 +1,4 @@
-import com.inforhomex;
+package com.inforhomex;
 
 public class Main{
 

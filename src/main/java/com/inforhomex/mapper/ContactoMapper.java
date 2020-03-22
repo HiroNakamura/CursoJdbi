@@ -5,7 +5,7 @@ public class ContactoMapper{
    private String nombre;
    private String telefono;
    
-   public ConctactoMapper(){}
+   public ContactoMapper(){}
    
    public ContactoMapper(int id, String nombre, String telefono){
       super();

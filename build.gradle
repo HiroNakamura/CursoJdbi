@@ -1,6 +1,29 @@
 /**
 *
 *@author Fer Carraro
-*@date 24/12/2019
+*@date 22/03/2020
 *
 */
+
+plugins {
+    id 'java'
+    id 'application'
+}
+
+mainClassName = "com.inforhomex.Main"
+
+repositories {
+   mavenCentral()
+}
+
+dependencies {
+  compile group: 'org.jdbi', name: 'jdbi3-core', version: '3.12.0'
+}
+
+project.configurations.compile.resolvedConfiguration.resolvedArtifacts.each {
+ println '   [Dependencias] '
+ println 'artifact: '+it.name // << the artifact name
+ println 'referencia: '+it.file // << the file reference
+ println '**************************'
+}
+

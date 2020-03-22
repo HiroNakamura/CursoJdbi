@@ -5,7 +5,7 @@ public class Contacto{
    private String nombre;
    private String telefono;
    
-   public Conctacto(){}
+   public Contacto(){}
    
    public Contacto(int id, String nombre, String telefono){
       super();
