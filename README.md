@@ -1,5 +1,6 @@
 # Curso Jdbi
 
+![JDBI](https://2.bp.blogspot.com/-pktdONaoPHc/VsiBYNA0kmI/AAAAAAAAC6E/ojBDTbspWCY/s320/Sin%2Bnombre.png)
 
 Este es un proyecto usando [Jdbi](http://jdbi.org/). La cual es una librería que nos provee toda la funcionalidad para acceder a una base de datos y operar sobre ella. Más sencillo que usar JDBC u otras alternativas com JPA o Hibernate.
 
