@@ -18,6 +18,7 @@ repositories {
 
 dependencies {
   compile group: 'org.jdbi', name: 'jdbi', version: '2.78'
+  compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.6.0'
 }
 
 project.configurations.compile.resolvedConfiguration.resolvedArtifacts.each {
