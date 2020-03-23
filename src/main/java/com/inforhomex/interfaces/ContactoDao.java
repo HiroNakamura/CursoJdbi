@@ -6,31 +6,25 @@ import java.util.List;
 import org.skife.jdbi.v2.sqlobject.SqlUpdate; 
 import org.skife.jdbi.v2.sqlobject.Bind;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
-//import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapper;
+import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapper;
 import org.skife.jdbi.v2.DBI;
 import org.skife.jdbi.v2.Handle;
 import org.skife.jdbi.v2.tweak.*;
 import org.skife.jdbi.v2.*;
+import org.skife.jdbi.v2.sqlobject.BindBean;
 
 
 
 public interface ContactoDao{
    
-   @SqlUpdate("CREATE TABLE contactos (id INTEGER PRIMARY KEY, nombre VARCHAR(33), telefono VARCHAR(12))")
-   void createTable();
+   @SqlUpdate("create table something (id int primary key, name varchar(100))")
+  void createSomethingTable();
 
-   
-   @SqlUpdate("INSERT INTO contactos(id, nombre, telefono) VALUES (?, ?,?)")
-   void insertPositional(int id, String nombre, String telefono);
+  @SqlUpdate("insert into something (id, name) values (:id, :name)")
+  void insert(@Bind("id") int id, @Bind("name") String name);
 
-   @SqlUpdate("INSERT INTO contactos(id, nombre,telefono) VALUES (:id, :nombre,:telefono)")
-   void insertNamed(@Bind("id") int id, @Bind("nombre") String nombre, @Bind("telefono") String telefono);
-
-   @SqlUpdate("INSERT INTO contactos(id, nombre,telefono) VALUES (:id, :nombre,:telefono)")
-   //void insertBean(@BindBean Contacto contacto);
-
-   @SqlQuery("SELECT * FROM contactos ORDER BY nombre")
-   //@RegisterBeanMapper(Contacto.class)
-   List<Contacto> listContactos();
+  @SqlQuery("select name from something where id = :id")
+  String findNameById(@Bind("id") int id);
+  void close();
    
 }
