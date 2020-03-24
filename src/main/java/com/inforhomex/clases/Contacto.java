@@ -1,6 +1,10 @@
 package com.inforhomex.clases;
 
-public class Contacto{
+
+public class Contacto implements java.io.Serializable{
+
+  private static final long serialVersionUID=1L;
+
    private int id;
    private String nombre;
    private String telefono;

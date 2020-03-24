@@ -1,11 +1,17 @@
 package com.inforhomex.mapper;
 
-public class ContactoMapper{
+import com.inforhomex.clases.Contacto;
+import org.skife.jdbi.v2.tweak.ResultSetMapper;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import org.skife.jdbi.v2.StatementContext;
+
+public class ContactoMapper implements ResultSetMapper<Contacto>{
   private int id;
-   private String nombre;
-   private String telefono;
+  private String nombre;
+  private String telefono;
    
-   public ContactoMapper(){}
+  public ContactoMapper(){}
    
    public ContactoMapper(int id, String nombre, String telefono){
       super();
@@ -13,6 +19,14 @@ public class ContactoMapper{
       this.nombre = nombre;
       this.telefono = telefono;
    }
+
+   @Override
+    public Contacto map(int arg0, ResultSet r, StatementContext arg2) throws SQLException {
+        Contacto mcontacto =new Contacto();
+        mcontacto.setNombre(r.getString("nombre"));
+        mcontacto.setTelefono(r.getString("telefono"));
+        return null;
+    }
    
    public int getId(){
      return id;
