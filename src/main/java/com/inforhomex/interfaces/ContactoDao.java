@@ -14,13 +14,13 @@ import org.skife.jdbi.v2.*;
 import org.skife.jdbi.v2.sqlobject.BindBean;
 
 public interface ContactoDao{
-   @SqlUpdate("create table contacto (id int primary key, name varchar(100))")
+   @SqlUpdate("create table contacto (id int auto_increment primary key, nombre varchar(100), telefono varchar(12) )")
    void createSomethingTable();
    
-   @SqlUpdate("insert into contacto (id, name) values (:id, :name)")
-   void insert(@Bind("id") int id, @Bind("name") String name);
+   @SqlUpdate("insert into contacto (nombre,telefono) values (:nombre, :telefono)")
+   void insert(@Bind("nombre") int id, @Bind("telefono") String name);
    
-   @SqlQuery("select name from contacto where id = :id")
+   @SqlQuery("select nombre from contacto where id = :id")
    String findNameById(@Bind("id") int id);
    void close();
    
