@@ -22,10 +22,11 @@ public interface ContactoDao{
    void createSomethingTable();
    
    @SqlUpdate("insert into contacto (nombre,telefono) values (:nombre, :telefono)")
-   void insert(@Bind("nombre") int id, @Bind("telefono") String name);
+   void insert(@Bind("nombre") String nombre, @Bind("telefono") String telefono);
    
    @SqlQuery("select nombre from contacto where id = :id")
    String findNameById(@Bind("id") int id);
+   
    void close();
    
 }

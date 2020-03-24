@@ -1,6 +1,9 @@
 package com.inforhomex;
 
 import java.util.Properties;
+
+import com.inforhomex.interfaces.ContactoDao;
+
 import static java.lang.System.out;
 import static java.lang.System.err;
 import org.skife.jdbi.v2.DBI;
@@ -17,6 +20,7 @@ public class Main{
 
     public static DBI dbi = null;
     public static Handle handle = null;
+
 
     static{
         try{
@@ -48,7 +52,10 @@ public class Main{
    public static void main(String[] args){
        out.println("***** JDBI *****");
        try{
-
+           //crear();
+           //insertar();
+           String nombre = getNombre();
+           out.println("Nombre: "+nombre);
        }catch(Exception ex){
            err.println("Ha ocurrido una excepcion: "+ex.toString());
        }finally{
@@ -57,8 +64,36 @@ public class Main{
        }
    }
 
-   public static void crear(){
+   public static String getNombre()throws Exception{
+    out.println("Insertando en tabla...");
+    ContactoDao contactoDao = null;
+    String tuNombre = null;
+    contactoDao = Main.dbi.open(ContactoDao.class);
+    tuNombre = contactoDao.findNameById(1);
+    out.println("Se ha obtenido el nombre!!");
+    contactoDao.close();
+    out.println("Conexion cerrada!!");
+    return tuNombre;
+   }
 
+   public static void insertar()throws Exception{
+    out.println("Insertando en tabla...");
+    ContactoDao contactoDao = null;
+    contactoDao = Main.dbi.open(ContactoDao.class);
+    contactoDao.insert("Pedro Paramo", "555-432");
+    out.println("Se ha insertado los datos!!");
+    contactoDao.close();
+    out.println("Conexion cerrada!!");
+   }
+
+   public static void crear()throws Exception{
+       out.println("Creando tabla...");
+       ContactoDao contactoDao = null;
+       contactoDao = Main.dbi.open(ContactoDao.class);
+       contactoDao.createSomethingTable();
+       out.println("Tabla creada!!");
+       contactoDao.close();
+       out.println("Conexion cerrada!!");
    }
    
 }
