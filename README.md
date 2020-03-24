@@ -11,16 +11,17 @@ Si usan Maven, será necesario agregar la dependencia necesaria.
 ```xml
 <dependencies>
   <dependency>
-    <groupId>org.jdbi</groupId>
-    <artifactId>jdbi3-core</artifactId>
-  </dependency>
+      <groupId>org.jdbi</groupId>
+       <artifactId>jdbi</artifactId>
+       <version>2.78</version>
+     </dependency>
 </dependencies>
 ```
 Si usan Gradle, añadirán la siguiente dependencia.
 
 **build.gradle**
 ```java
-compile group: 'org.jdbi', name: 'jdbi3-core', version: '3.12.0'
+compile group: 'org.jdbi', name: 'jdbi', version: '2.78'
 ```
 
 La documentación oficial nos ofrece dos "sabores" a escoger:
