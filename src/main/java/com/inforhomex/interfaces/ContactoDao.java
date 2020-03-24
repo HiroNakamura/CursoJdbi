@@ -12,7 +12,9 @@ import org.skife.jdbi.v2.Handle;
 import org.skife.jdbi.v2.tweak.*;
 import org.skife.jdbi.v2.*;
 import org.skife.jdbi.v2.sqlobject.BindBean;
+import com.inforhomex.mapper.ContactoMapper;
 
+//@RegisterMapper(ContactoMapper.class)
 public interface ContactoDao{
    @SqlUpdate("create table contacto (id int auto_increment primary key, nombre varchar(100), telefono varchar(12) )")
    void createSomethingTable();
