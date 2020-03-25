@@ -1,5 +1,6 @@
 package com.inforhomex;
 
+import org.junit.jupiter.api.DisplayName;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
@@ -10,6 +11,12 @@ public class MainTest{
     @Test
     void addition() {
         assertEquals(5, calculator.add(1, 1));
+    }
+
+    @DisplayName("Test MainTest.testAdd()")
+    @Test
+    public void testAdd() {
+        assertEquals(48, Integer.sum(19, 23));
     }
 
 }
