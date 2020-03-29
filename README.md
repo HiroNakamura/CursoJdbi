@@ -34,3 +34,4 @@ La documentación oficial nos ofrece dos "sabores" a escoger:
 Links:
 * [Sitio oficial de Jdbi](http://jdbi.org/)
 * [JDBI en Github](https://github.com/jdbi/jdbi).
+* [Documentación](https://jdbi.org/jdbi2/apidocs/).
