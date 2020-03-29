@@ -10,13 +10,13 @@ public class MainTest{
 
     @Test
     void addition() {
-        assertEquals(5, calculator.add(1, 1));
+        assertEquals(5, calculator.add(4, 1),"Deberia ser 5");
     }
 
     @DisplayName("Test MainTest.testAdd()")
     @Test
     public void testAdd() {
-        assertEquals(48, Integer.sum(19, 23));
+        assertEquals(48, Integer.sum(4,44),"Deberia ser 48");
     }
 
 }
