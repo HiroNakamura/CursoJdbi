@@ -24,6 +24,12 @@ public interface ContactoDao{
    @SqlUpdate("insert into contacto (nombre,telefono) values (:nombre, :telefono)")
    void insert(@Bind("nombre") String nombre, @Bind("telefono") String telefono);
    
+   @SqlUpdate("update contacto set nombre = :nombre ,telefono = :telefono where id = :id")
+   void update(@Bind("id") int id, @Bind("nombre") String nombre, @Bind("telefono") String telefono);
+   
+   @SqlUpdate("delete contacto where id = :id")
+   void delete(@Bind("id") int id);
+   
    @SqlQuery("select nombre from contacto where id = :id")
    String findNameById(@Bind("id") int id);
    
