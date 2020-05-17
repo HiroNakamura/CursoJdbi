@@ -54,8 +54,12 @@ public class Main{
        try{
            //crear();
            //insertar();
-           String nombre = getNombre();
-           out.println("Nombre: "+nombre);
+           //String nombre = getNombre(1);
+           //out.println("Nombre obtenido: "+nombre);
+           //actualizar(1,"Pedro Paramo Gonzalez", "7221212643");
+
+           //insertar("Jacobo", "34322");
+           borrar(1);
        }catch(Exception ex){
            err.println("Ha ocurrido una excepcion: "+ex.toString());
        }finally{
@@ -64,16 +68,46 @@ public class Main{
        }
    }
 
-   public static String getNombre()throws Exception{
-    out.println("Insertando en tabla...");
+   public static void borrar(int id){
+    out.println("Borrando...");
+    ContactoDao contactoDao = null;
+    contactoDao = Main.dbi.open(ContactoDao.class);
+    contactoDao.delete(id);
+    out.println("Se ha borrado el elemento con id: "+id);
+    contactoDao.close();
+    out.println("Conexion cerrada!!");
+   }
+
+   public static void actualizar(int id,String nombre, String telefono){
+       out.println("Actualizando...");
+       ContactoDao contactoDao = null;
+       contactoDao = Main.dbi.open(ContactoDao.class);
+       contactoDao.update(id, nombre,telefono);
+       out.println("Se han actualizado los datos!!");
+       contactoDao.close();
+       out.println("Conexion cerrada!!");
+   } 
+
+   public static String getNombre(int id)throws Exception{
+    out.println("Buscando en tabla...");
     ContactoDao contactoDao = null;
     String tuNombre = null;
     contactoDao = Main.dbi.open(ContactoDao.class);
-    tuNombre = contactoDao.findNameById(1);
-    out.println("Se ha obtenido el nombre!!");
+    tuNombre = contactoDao.findNameById(id);
+    out.println("Se ha obtenido el nombre con el id: "+id);
     contactoDao.close();
     out.println("Conexion cerrada!!");
     return tuNombre;
+   }
+
+   public static void insertar(String nombre, String telefono)throws Exception{
+    out.println("Insertando en tabla...");
+    ContactoDao contactoDao = null;
+    contactoDao = Main.dbi.open(ContactoDao.class);
+    contactoDao.insert(nombre, telefono);
+    out.println("Se ha insertado los datos!!");
+    contactoDao.close();
+    out.println("Conexion cerrada!!");
    }
 
    public static void insertar()throws Exception{

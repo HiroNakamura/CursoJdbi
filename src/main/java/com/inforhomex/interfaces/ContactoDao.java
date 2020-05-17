@@ -27,7 +27,7 @@ public interface ContactoDao{
    @SqlUpdate("update contacto set nombre = :nombre ,telefono = :telefono where id = :id")
    void update(@Bind("id") int id, @Bind("nombre") String nombre, @Bind("telefono") String telefono);
    
-   @SqlUpdate("delete contacto where id = :id")
+   @SqlUpdate("delete from contacto where id = :id")
    void delete(@Bind("id") int id);
    
    @SqlQuery("select nombre from contacto where id = :id")
